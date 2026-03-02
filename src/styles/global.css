@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/space-grotesk";
+
+@theme {
+  --font-primary: 'Plus Jakarta Sans Variable', sans-serif;
+  --font-secondary: 'Space Grotesk Variable', sans-serif;
+}

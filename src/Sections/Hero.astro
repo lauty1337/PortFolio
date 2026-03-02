@@ -1,0 +1,45 @@
+---
+import LinkedInIcon from "../components/Icons/LinkedInIcon.astro";
+import DownloadIcon from "../components/Icons/DownloadIcon.astro";
+---
+
+
+<section class="py-10 md:py-15 relative overflow-hidden min-h-dvh">
+
+    <div class="relative max-w-8xl items-center  flex flex-col mx-auto px-6 pt-20 pb-16">
+
+        <span class="text-xs my-4">
+            Disponible para trabajar
+        </span>
+
+        <p class="text-md md:text-2xl font-secondary opacity/90">
+            👋 Hey, soy Lautaro Sanchez Visser
+        </p>
+
+        <h1 class="relative mt-4 text-4xl font-bold md:text-9xl font-primary uppercase leading-tight text-center opacity-90 ">
+             Desarrollador Web
+            <br>
+            <span class="bg-linear-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent flex justify-center">Front-End</span> 
+        </h1>
+
+
+        <div class="flex flex-col mt-6 justify-center items-center md:flex-row gap-4">
+
+            <a href="/curriculum.pdf" class="px-5 py-2 flex items-center gap-x-2 w-fit z-10 border border-black/60 bg-white text-black rounded-sm text-sm font-secondary hover:bg-gray-200 hover:shadow-lg hover:shadow-white/10 transition-all duration-200 ">
+                <DownloadIcon class="size-4" />
+                Descargar Curriculum
+            </a>
+
+            <a href="https://linkedin.com/in/lautaro-sanchez-visser" class="flex items-center gap-x-2  px-5 py-2 w-fit border border-white/20 bg-[#101010] rounded-sm text-sm font-secondary hover:bg-black hover:shadow-xl hover:shadow-black/30 transition-all duration-200 z-10">
+                <LinkedInIcon class="size-4" />
+                LinkedIn
+            </a>
+
+        </div>
+        
+        <figure class="absolute inset-x-0 left-6 top-120 md:top-35 flex items-center justify-center">
+            <img src="/src/assets/fotomia.webp" alt="Hero" class="w-auto h-[350px] md:h-[1000px] object-cover mask-b-from-30% mask-b-to-90% md:mask-b-to-65%">
+        </figure>
+    </div>
+
+</section>
