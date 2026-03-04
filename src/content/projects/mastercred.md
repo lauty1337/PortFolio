@@ -1,14 +1,14 @@
 ---
-subtitle: "01 / Proyecto"
-title: "Los 50 de Caro"
-description: "Invitacion a los 50 de caro"
+subtitle: "03 / Proyecto"
+title: "MasterCred"
+description: "Pagina de prestamos para comercios"
 stack:
   - HTML5
   - TailwindCSS
   - Astro
   - JavaScript
-img: los50decaroimage.webp
-size: "tall"
+img: velarimage.webp
+size: "medium"
 live: "https://los-50-de-caro.vercel.app/"
 github: "https://github.com/lauty1337/Los-50-de-Caro"
 ---

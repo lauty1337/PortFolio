@@ -9,23 +9,51 @@ interface Props {
 const { project } = Astro.props;
 const { data, slug } = project;
 
+const sizesClasses = {
+    "large": "md:col-span-2 md:row-span-2",
+    "tall": "md:row-span-2",
+    "medium": "md:col-span-2",
+    "short": "md:col-span-1 md:row-span-1",
+}
+
 
 ---
 
-<li>
-    <article class="border border-white/10 p-6 h-full">
+<li class={sizesClasses[data.size as keyof typeof sizesClasses]}>
+    <article class="group border relative flex flex-col border-white/10 p-6 h-full">
 
         <div class="flex justify-between items-center">
 
-            <span class="text-xs opacity-30">
+            <span class="text-xs opacity-10">
                 {data.subtitle}
             </span>
 
-            <a href={`/projects/${slug}`} class="group flex text-xs items-center gap-x-2 py-1 px-3 border border-white/10 rounded-sm hover:border-white/20 transition-all duration-200">
+            <a href={`/projects/${slug}`} class="group flex text-xs items-center gap-x-2 py-1 px-3 border border-white/10 rounded-xs hover:border-white/20 transition-all duration-200">
                 Saber mas
                 <ArrowRightIcon class="size-4 group-hover:translate-x-1 transition-all duration-200"/>
             </a>
 
         </div>
+
+        <figure class="relative overflow-hidden my-10 flex justify-center items-center">
+            <img src={`/src/assets/images/${data.img}`} alt={data.title} loading="lazy" decoding="async" class="w-[600px] max-h-[300px] object-cover" />
+            <div class="absolute inset-0 bg-linear-to-b from-transparent from-40% to-black opacity-100 group-hover:opacity-30 transition-opacity duration-700"></div>
+        </figure>
+
+        <h3 class="text-2xl mt-4 uppercase font-bold md:text-6xl">
+            {data.title}
+        </h3>
+
+        <p class="text-sm mt-4 opacity-80 leading-relaxed ">
+            {data.description}
+        </p>
+
+        <ul class="flex gap-x-2 mt-2 ">
+            {data.stack.map((stack) => (
+                <li class="text-xs px-2 py-1 bg-white/10 rounded-xs text-white/50 hover:text-white transition-colors duration-200">
+                    {stack}
+                </li>
+            ))}
+        </ul>
     </article>
 </li>

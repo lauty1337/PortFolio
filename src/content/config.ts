@@ -4,11 +4,12 @@ const projects = defineCollection({
     schema: z.object({
         subtitle: z.string(),
         title: z.string(),
+        img: z.string(),
         description: z.string(),
-        stack: z.string(),
+        stack: z.array(z.string()),
         live: z.string().url(),
         github: z.string().url(),
-        size: z.enum(["sm", "md", "lg", "xl"]).default("md")
+        size: z.string(),
     })
 })
 
