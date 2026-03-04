@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import ProjectCard from "../components/ProjectCard.astro";
 
-const projects = await getCollection('projects')
+const projects = (await getCollection('projects')).sort((a, b) => a.data.subtitle.localeCompare(b.data.subtitle))
 
 ---
 
@@ -16,7 +16,7 @@ const projects = await getCollection('projects')
 
     <div class="border-t border-white/10 mt-15 px-6">
         
-        <ul class="max-w-7xl mx-auto grid grid-cols-1 border-white/10 divide-white/10 md:grid-cols-[0.8fr_0.8fr_0.8fr] md:grid-rows-[0.5fr_0.5fr_0.5fr]">
+        <ul class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 md:grid-auto-flow-dense">
             {projects.map((project) => (
                 <ProjectCard project={project} />
             ))}
