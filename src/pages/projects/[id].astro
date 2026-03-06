@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import GitHubIcon from "../../components/Icons/GitHubIcon.astro";
+import WebsiteIcon from "../../components/Icons/WebsiteIcon.astro";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+
+    return projects.map((project) => ({
+        params: { id: project.slug },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+const {data, slug } = project;
+const { title, description, img, stack, live, github, size, imgMobile, imgDesktop } = data;
+
+const { Content } = await render(project)
+---
+
+<Layout title={title} description={description}>
+    <div class="min-h-dvh flex flex-col justify-center">
+        <article class="max-w-90 md:max-w-xl relative mx-auto flex flex-col rounded-sm border  border-white/10 bg-[#111111]">
+
+            <figure>
+            <img 
+            src={`/src/assets/images/projects/${img}`} 
+            alt={title} 
+            loading="lazy" 
+            decoding="async" 
+            class="size-full" 
+            width={100}  
+            transition:name={`${slug}-image`}
+            />
+            </figure>
+            <div class="p-4">
+
+                <h1 class="my-4 text-3xl font-bold uppercase" transition:name={`${slug}-title`}>
+                    {title}
+                </h1>
+                <p class="text-xs md:text-sm text-paragraph leading-relaxed">
+                    {description}
+                </p>
+
+                <div class="flex gap-4 mt-4 border-b border-white/10 pb-6">
+                    <a href={live} target="_blank" rel="noopener noreferrer" class="text-xs bg-white text-black px-3 py-1 rounded-sm border-black/10 border font-secondary hover:bg-gray-100 hover:border-black/20 transition-all duration-200 md:text-sm">
+                        
+                        <span class="flex flex-row gap-2 items-center  ">
+                            <WebsiteIcon class="size-4" />
+                            Pagina web
+                        </span>
+                    </a>
+                    <a href={github} target="_blank" rel="noopener noreferrer" class=" gap-2 text-xs px-3 py-1 border border-white/10 bg-[#101010]font-secondary hover:border-white/20 hover:bg-black transition-all duration-200 rounded-sm md:text-sm">
+                        <span class="flex flex-row gap-2 items-center">
+                            <GitHubIcon class="size-4" />
+                            Repositorio de GitHub  
+                        </span>
+                    </a>
+                </div>
+
+                <h2 class="text-md font-bold uppercase mt-6">
+                    Descripcion
+                </h2>
+                <div class="mt-4 text-sm text-paragraph leading-relaxed   ">
+                    <Content />
+                </div>
+                
+                <div class="mt-6 flex gap-8">
+                    <figure class="flex-1">
+                        <img 
+                        src={`/src/assets/images/projects/${imgMobile}`} 
+                        alt={title} 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-[400px] object-contain" 
+                        width={100}  
+                        transition:name={`${slug}-image-mobile`}
+                        />
+                    </figure>
+                    <figure class="flex-1">
+                        <img 
+                        src={`/src/assets/images/projects/${imgDesktop}`} 
+                        alt={title} 
+                        loading="lazy" 
+                        decoding="async" 
+                        class="w-full h-[400px] object-cover" 
+                        width={100}  
+                        transition:name={`${slug}-image-desktop`}
+                        />
+                    </figure>
+                </div>
+            </div>
+        </article>
+    </div>
+</Layout>

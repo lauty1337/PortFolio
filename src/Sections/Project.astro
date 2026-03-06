@@ -8,7 +8,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.subtitl
 
 <section class="py-15">
 
-    <h2 class="max-w-7xl mx-auto px-6 text-4xl text-center uppercase tracking-tighter font-bold md:text-8xl md:text-left">
+    <h2 class="max-w-7xl  mx-auto px-6 text-4xl text-center uppercase tracking-tighter font-bold md:text-8xl md:text-left">
         Proyectos
         <br>
         <span class="text-transparent [-webkit-text-stroke:0.5px_gray]">Archivos</span>
@@ -16,7 +16,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.subtitl
 
     <div class="border-t border-white/10 mt-15 px-6">
         
-        <ul class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 md:grid-auto-flow-dense">
+        <ul class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:grid-auto-flow-dense">
             {projects.map((project) => (
                 <ProjectCard project={project} />
             ))}

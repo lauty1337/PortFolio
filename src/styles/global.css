@@ -1,8 +1,25 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "@fontsource-variable/plus-jakarta-sans";
 @import "@fontsource-variable/space-grotesk";
 
 @theme {
   --font-primary: 'Space Grotesk Variable', sans-serif;
   --font-secondary: 'Plus Jakarta Sans Variable', sans-serif;
+}
+
+@font-face {
+  font-family: 'Space Grotesk Variable';
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans Variable';
+  font-display: swap;
+}
+
+@layer utilities {
+  .text-paragraph {
+    color: #a4a5a3;
+  }
 }

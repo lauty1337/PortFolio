@@ -8,7 +8,9 @@ stack:
   - Astro
   - JavaScript
 img: velarimage.webp
-size: "short"
+imgMobile: VelarrMobile.webp
+imgDesktop: VelarDesktop.webp
+size: "tall"
 live: "https://los-50-de-caro.vercel.app/"
 github: "https://github.com/lauty1337/Los-50-de-Caro"
 ---

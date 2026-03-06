@@ -10,9 +10,9 @@ const { project } = Astro.props;
 const { data, slug } = project;
 
 const sizesClasses = {
-    "large": "md:col-span-2 ",
-    "tall": "md:row-span-1",
-    "medium": "md:col-span-1",
+    "large": "lg:col-span-2 ",
+    "tall": "md:col-span-2 lg:row-span-1 lg:col-span-1",
+    "medium": "lg:col-span-1",
 }
 
 
@@ -23,7 +23,7 @@ const sizesClasses = {
 
         <div class="flex justify-between items-center">
 
-            <span class="text-xs opacity-10">
+            <span class="text-xs opacity-10 ">
                 {data.subtitle}
             </span>
 
@@ -34,20 +34,27 @@ const sizesClasses = {
 
         </div>
 
-        <figure class="relative overflow-hidden my-10 flex justify-center items-center">
-            <img src={`/src/assets/images/${data.img}`} alt={data.title} loading="lazy" decoding="async" class="w-[600px] max-h-[300px] object-cover" />
-            <div class="absolute inset-0 bg-linear-to-b from-transparent from-40% to-black opacity-100 group-hover:opacity-30 transition-opacity duration-700"></div>
+        <figure class="relative overflow-hidden group-hover:scale-105 transition-all duration-700 mt-4 flex-1 flex justify-center items-center min-h-[70px]">
+            <img
+            transition:name={`${slug}-image`}
+            src={`/src/assets/images/projects/${data.img}`} 
+            alt={data.title} 
+            loading="lazy" 
+            decoding="async" 
+            class="w-[600px] hover:scale-135 transition-all duration-300 h-full object-cover" 
+            />
+            <div class="absolute inset-0 bg-linear-to-b from-transparent from-10% to-black opacity-100 group-hover:opacity-30 transition-opacity duration-700"></div>
         </figure>
 
-        <h3 class="text-2xl mt-4 uppercase font-bold md:text-6xl">
+        <h3 class="text-2xl mt-4 uppercase font-bold md:text-6xl" transition:name={`${slug}-title`}>
             {data.title}
         </h3>
 
-        <p class="text-sm mt-4 opacity-80 leading-relaxed ">
+        <p class="text-sm mt-4 text-paragraph leading-relaxed ">
             {data.description}
         </p>
 
-        <ul class="flex gap-x-2 mt-2 ">
+        <ul class="flex flex-wrap gap-2 mt-auto pt-4">
             {data.stack.map((stack) => (
                 <li class="text-xs px-2 py-1 bg-white/10 rounded-xs text-white/50 hover:text-white transition-colors duration-200">
                     {stack}

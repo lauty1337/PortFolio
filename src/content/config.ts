@@ -5,6 +5,8 @@ const projects = defineCollection({
         subtitle: z.string(),
         title: z.string(),
         img: z.string(),
+        imgMobile: z.string(),
+        imgDesktop: z.string(),
         description: z.string(),
         stack: z.array(z.string()),
         live: z.string().url(),
