@@ -1,13 +1,15 @@
 ---
 import LinkedInIcon from "../components/Icons/LinkedInIcon.astro";
 import DownloadIcon from "../components/Icons/DownloadIcon.astro";
+import { Image } from "astro:assets";
+import profile from "../assets/images/profile/fotomia.webp";
 ---
 
 <section class="relative overflow-hidden min-h-dvh border-b border-white/10">
 
-    <div class="relative max-w-8xl items-center flex flex-col mx-auto px-6 pt-28 md:pt-36 pb-16">
+    <div class="relative items-center flex flex-col mx-auto px-6 pt-28 md:pt-36 pb-16">
 
-        <a href="/contact" class="group flex items-center gap-x-2 text-xs mb-8 px-3 py-1.5 border border-white/15 hover:border-white/40 transition-all duration-300 rounded-sm ">
+        <a data-hero-tagline href="/contact" class="group flex items-center gap-x-2 text-xs mb-8 px-3 py-1.5 border border-white/15 hover:border-white/40   rounded-sm ">
             <span class="relative flex size-2">
                 <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                 <span class="relative inline-flex size-2 rounded-full bg-emerald-500"></span>
@@ -19,10 +21,10 @@ import DownloadIcon from "../components/Icons/DownloadIcon.astro";
             Hey, soy Lautaro Sanchez Visser
         </p>
 
-        <h1 class="relative mt-6 text-5xl font-bold font-primary uppercase tracking-tighter text-center md:text-8xl lg:text-9xl">
+        <h1  data-split class="relative mt-6 text-5xl font-bold font-primary uppercase tracking-tighter text-center md:text-8xl lg:text-[135px] xl:text-[190px]">
             Desarrollador
             <br>
-            <span class="text-transparent [-webkit-text-stroke:0.5px_gray]">Front-End</span>
+            <span class="text-transparent [-webkit-text-stroke:2px_gray]">Front-End</span>
         </h1>
 
         <div class="flex flex-col mt-10 justify-center items-center gap-4 md:flex-row md:mt-60 lg:mt-40 ">
@@ -38,18 +40,16 @@ import DownloadIcon from "../components/Icons/DownloadIcon.astro";
             </a>
         </div>
         
-        <figure class="absolute inset-x-0 left-6 top-120 flex items-center justify-center md:top-55">
-            <img 
-            src="/src/assets/images/profile/fotomia.webp" 
-            alt="Hero"
-            decoding="async"
-            fetchpriority="high"
-            loading="eager"
-            class="w-auto h-[350px] object-cover grayscale hover:grayscale-0 transition-all duration-700 mask-b-from-40% mask-b-to-90% md:h-[1000px] md:mask-b-to-65% " 
+        <div class="absolute inset-x-0 left-6 top-120 flex items-center justify-center md:top-55">
+            <Image 
+            src={profile} 
+            alt="Foto de Lautaro Sanchez Visser"
             width={350}
             height={350}
+            priority
+            class="w-auto h-[350px] object-cover grayscale hover:grayscale-0 transition-all duration-700 mask-b-from-40% mask-b-to-90% md:h-[1000px] md:mask-b-to-65% " 
             />
-        </figure>
+        </div>
     </div>
 
 </section>
