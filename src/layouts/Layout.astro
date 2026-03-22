@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -24,8 +24,19 @@ const { title } = Astro.props;
   </body>
 
   <script>
-    import { initLenis } from '../scripts/lenis.js'
-    initLenis()
+    import { initLenis, destroyLenis } from '../scripts/lenis.js';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    // Limpia todo antes de que Astro haga el swap de página
+    document.addEventListener('astro:before-preparation', () => {
+      ScrollTrigger.killAll();
+      destroyLenis();
+    });
+
+    // Re-inicializa Lenis en cada página (incluyendo la carga inicial)
+    document.addEventListener('astro:page-load', () => {
+      initLenis();
+    });
   </script>
 
 </html>

@@ -6,9 +6,8 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.subtitl
 
 ---
 
-<section class="py-15" data-section>
-
-    <h2 class="max-w-7xl mx-auto px-6 text-4xl text-center uppercase tracking-tighter font-bold md:text-8xl md:text-left ">
+<section data-project-section class="relative z-20 py-15 bg-black" id="projects" >
+    <h2 data-project-title class="max-w-7xl mx-auto px-6 text-4xl text-center uppercase tracking-tighter font-bold md:text-8xl md:text-left ">
         Proyectos
         <br>
         <span class="text-transparent [-webkit-text-stroke:0.5px_gray]">Archivos</span>
@@ -21,4 +20,5 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.subtitl
             ))}
         </ul>
     </div>
+    <script src="../scripts/animations/project.js"></script>
 </section>
