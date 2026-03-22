@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Incluye clases de grid en frontmatter (.md) para que Tailwind las genere */
+@source "../content/**/*.md";
 @plugin "@tailwindcss/typography";
 @import "@fontsource-variable/plus-jakarta-sans";
 @import "@fontsource-variable/space-grotesk";

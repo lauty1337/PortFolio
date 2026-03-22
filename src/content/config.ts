@@ -11,7 +11,7 @@ const projects = defineCollection({
         stack: z.array(z.string()),
         live: z.string().url(),
         github: z.string().url(),
-        size: z.string(),
+        span: z.string().default("col-span-1"),
     })
 })
 

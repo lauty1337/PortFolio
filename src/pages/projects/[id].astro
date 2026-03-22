@@ -1,8 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import GitHubIcon from "../../components/Icons/GitHubIcon.astro";
-import WebsiteIcon from "../../components/Icons/WebsiteIcon.astro";
+import GitHub from "../../assets/svg/GitHub.svg";
+import WebsiteIcon from "../../assets/svg/Website.svg";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
@@ -15,12 +15,12 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const {data, slug } = project;
-const { title, description, img, stack, live, github, size, imgMobile, imgDesktop } = data;
+const { title, description, img, stack, live, github, span, imgMobile, imgDesktop } = data;
 
 const { Content } = await render(project)
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title + " | LSV Front-End Developer"} description={description}>
     <div class="min-h-dvh flex flex-col justify-center mt-15 md:mt-0 lg:mt-15">
         <article class="max-w-90 md:max-w-xl relative mx-auto flex flex-col  rounded-sm border  border-white/10 bg-[#111111]">
 
@@ -54,7 +54,7 @@ const { Content } = await render(project)
                     </a>
                     <a href={github} target="_blank" rel="noopener noreferrer" class=" gap-2 text-xs px-3 py-1 border border-white/10 bg-[#101010]font-secondary hover:border-white/20 hover:bg-black transition-all duration-200 rounded-sm md:text-sm">
                         <span class="flex flex-row gap-2 items-center">
-                            <GitHubIcon class="size-4" />
+                            <GitHub class="size-4" />
                             Repositorio de GitHub  
                         </span>
                     </a>

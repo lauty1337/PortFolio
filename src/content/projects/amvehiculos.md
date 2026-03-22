@@ -10,7 +10,7 @@ stack:
 img: velarimage.webp
 imgMobile: VelarrMobile.webp
 imgDesktop: VelarDesktop.webp
-size: "large"
+span: "lg:col-span-2"
 live: "https://los-50-de-caro.vercel.app/"
 github: "https://github.com/lauty1337/Los-50-de-Caro"
 ---

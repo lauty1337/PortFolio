@@ -1,7 +1,7 @@
 ---
-import LinkedInIcon from "../components/Icons/LinkedInIcon.astro";
-import DownloadIcon from "../components/Icons/DownloadIcon.astro";
 import { Image } from "astro:assets";
+import LinkedInIcon from "../assets/svg/LinkedIn.svg";
+import DownloadIcon from "../assets/svg/DownloadIcon.svg";
 import profile from "../assets/images/profile/fotomia.webp";
 ---
 
@@ -21,26 +21,25 @@ import profile from "../assets/images/profile/fotomia.webp";
             Hey, soy Lautaro Sanchez Visser
         </p>
 
-        <h1  data-split class="relative mt-6 text-5xl font-bold font-primary uppercase tracking-tighter text-center md:text-8xl lg:text-[135px] xl:text-[190px]">
+        <h1  data-split class="relative mt-6 text-[45px] font-bold font-primary uppercase tracking-tighter text-center md:text-8xl lg:text-[130px] xl:text-[180px]">
             Desarrollador
             <br>
             <span class="text-transparent [-webkit-text-stroke:2px_gray]">Front-End</span>
         </h1>
 
-        <div class="flex flex-col mt-10 justify-center items-center gap-4 md:flex-row md:mt-60 lg:mt-40 ">
+        <div data-hero-cta class="flex flex-col mt-10 justify-center z-50 items-center gap-4 md:flex-row md:mt-60 lg:mt-40 ">
             <a href="/curriculum.pdf" 
-            class="px-6 py-2.5 flex  items-center gap-x-2 z-10 bg-white text-black border-black/10 border text-xs  font-secondary hover:bg-gray-100 hover:border-black/20 transition-all duration-200">
+            class="px-6 py-2.5 flex  items-center gap-x-2 bg-white text-black border-black/10 border text-xs  font-secondary hover:bg-gray-100 hover:border-black/20 duration-200">
                 <DownloadIcon class="size-4" />
                 Descargar Curriculum
             </a>
-
-            <a href="https://linkedin.com/in/lautaro-sanchez-visser" class="flex items-center gap-x-2 px-6 py-2.5 border border-white/10 bg-[#101010] text-xs font-secondary hover:border-white/20 hover:bg-black transition-all duration-200 z-10 ">
+            <a href="https://linkedin.com/in/lautaro-sanchez-visser" class="flex items-center gap-x-2 px-6 py-2.5 border border-white/10 bg-[#101010] text-xs font-secondary hover:border-white/20 hover:bg-black duration-200  ">
                 <LinkedInIcon class="size-4" />
                 LinkedIn
             </a>
         </div>
         
-        <div class="absolute inset-x-0 left-6 top-120 flex items-center justify-center md:top-55">
+        <div data-hero-image class="absolute inset-x-0 left-6 top-120 flex items-center justify-center md:top-55">
             <Image 
             src={profile} 
             alt="Foto de Lautaro Sanchez Visser"
@@ -51,5 +50,6 @@ import profile from "../assets/images/profile/fotomia.webp";
             />
         </div>
     </div>
-
 </section>
+
+<script src="../scripts/animations/hero.js"></script>
