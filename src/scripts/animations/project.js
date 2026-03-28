@@ -3,20 +3,38 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projectTitle = document.querySelector('[data-project-title]');
-const projectCard = document.querySelectorAll('[data-project-card]');
+function initProjectAnimations() {
+  const section = document.getElementById('projects');
+  if (!section) return;
 
-const projectTl = gsap.timeline({
-    scrollTrigger: {
-        trigger: '#projects',
-        start: 'top bottom',
-        end: 'bottom bottom',
-        scrub: 1,
-        markers: true,
-    },
-});
+  const title = document.querySelector('[data-project-title]');
+  if (title) {
+    gsap.from(title, {
+      y: 36,
+      opacity: 0,
+      duration: 0.85,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 88%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  }
 
+  gsap.utils.toArray('[data-project-card]').forEach((card) => {
+    gsap.from(card, {
+      y: 48,
+      opacity: 0,
+      duration: 0.75,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 92%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  });
+}
 
-projectTl
-.from(projectTitle, {y: 10, opacity: 0, delay: 0.5, duration: 2, ease: 'power3.out'})
-.from(projectCard, {y: 30, opacity: 0, duration: 1, stagger: 0.3, ease: 'power3.out'}, '<+=0.4s')
+document.addEventListener('astro:page-load', initProjectAnimations);

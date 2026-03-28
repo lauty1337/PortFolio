@@ -24,4 +24,10 @@
   .text-paragraph {
     color: #a4a5a3;
   }
+
+  /* Cortina letra a letra (header): altura fija por carácter */
+  .nav-curtain-char {
+    height: 1.15em;
+    line-height: 1.15;
+  }
 }

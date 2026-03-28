@@ -10,7 +10,7 @@ stack:
 img: velarimage.webp
 imgMobile: VelarrMobile.webp
 imgDesktop: VelarDesktop.webp
-span: "lg:col-span-2"
+span: " md:col-span-2 md:col-start-1 md:row-start-3 xl:col-span-1 xl:row-span-3"
 live: "https://velar-nine.vercel.app/"
 github: "https://github.com/lauty1337/Velar"
 ---

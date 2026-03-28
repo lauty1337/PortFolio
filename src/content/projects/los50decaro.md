@@ -10,7 +10,7 @@ stack:
 img: los50decaroimage.webp
 imgMobile: Los50DeCarooMobile.webp
 imgDesktop: Los50DeCaroDesktop.webp
-span: "md:col-span-2 lg:row-span-1 lg:col-span-1"
+span: "md:col-start-2 md:row-start-2 xl:col-start-2 xl:row-start-3"
 live: "https://los-50-de-caro.vercel.app/"
 github: "https://github.com/lauty1337/Los-50-de-Caro"
 ---

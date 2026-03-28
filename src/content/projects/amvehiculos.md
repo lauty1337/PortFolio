@@ -1,5 +1,5 @@
 ---
-subtitle: "03 / Proyecto"
+subtitle: "04 / Proyecto"
 title: "AM Vehiculos"
 description: "Pagina de prestamos para comercios"
 stack:
@@ -10,7 +10,7 @@ stack:
 img: velarimage.webp
 imgMobile: VelarrMobile.webp
 imgDesktop: VelarDesktop.webp
-span: "lg:col-span-2"
+span: " md:col-span-2 xl:row-span-2"
 live: "https://los-50-de-caro.vercel.app/"
 github: "https://github.com/lauty1337/Los-50-de-Caro"
 ---
