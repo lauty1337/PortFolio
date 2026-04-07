@@ -8,7 +8,7 @@ stack:
   - Astro
   - JavaScript
   - GSAP
-img: velarimage.webp
+img: MastercredImage.png
 imgMobile: VelarrMobile.webp
 imgDesktop: VelarDesktop.webp
 span: "md:col-start-1 md:row-start-2 xl:col-start-3 xl:row-start-3"

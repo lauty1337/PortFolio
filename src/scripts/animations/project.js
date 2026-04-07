@@ -12,10 +12,11 @@ function initProjectAnimations() {
     gsap.from(title, {
       y: 36,
       opacity: 0,
-      duration: 0.85,
+      duration: 0.8,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: section,
+        markers: true,
         start: 'top 88%',
         toggleActions: 'play none none reverse',
       },

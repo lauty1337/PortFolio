@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import GitHub from "../../assets/svg/GitHub.svg";
 import WebsiteIcon from "../../assets/svg/Website.svg";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
@@ -12,9 +13,8 @@ export async function getStaticPaths() {
         props: { project },
     }));
 }
-
 const { project } = Astro.props;
-const {data, slug } = project;
+const { data, slug } = project;
 const { title, description, img, stack, live, github, span, imgMobile, imgDesktop } = data;
 
 const { Content } = await render(project)
@@ -22,19 +22,17 @@ const { Content } = await render(project)
 
 <Layout title={title + " | LSV Front-End Developer"} description={description}>
     <div class="min-h-dvh flex flex-col justify-center mt-15 md:mt-0 lg:mt-15">
-        <article class="max-w-90 md:max-w-xl relative mx-auto flex flex-col  rounded-sm border  border-white/10 bg-[#111111]">
+        <article class="max-w-90 md:max-w-xl relative mx-auto flex flex-col rounded-sm border  border-white/10 bg-[#111111]">
 
-            <figure>
-            <img 
+            <Image 
             src={`/src/assets/images/projects/${img}`} 
             alt={title} 
-            loading="lazy" 
-            decoding="async" 
+            priority
             class="size-full" 
+            height={400}
             width={100}  
             transition:name={`${slug}-image`}
             />
-            </figure>
             <div class="p-4">
 
                 <h1 class="my-4 text-3xl font-bold uppercase" transition:name={`${slug}-title`}>
@@ -45,7 +43,7 @@ const { Content } = await render(project)
                 </p>
 
                 <div class="flex gap-4 mt-4 border-b border-white/10 pb-6">
-                    <a href={live} target="_blank" rel="noopener noreferrer" class="text-xs bg-white text-black px-3 py-1 rounded-sm border-black/10 border font-secondary hover:bg-gray-100 hover:border-black/20 transition-all duration-200 md:text-sm">
+                    <a href={live} target="_blank" rel="noopener noreferrer" class="text-xs bg-white/80 text-black px-3 py-1 rounded-sm border-black/80 border font-secondary hover:bg-white hover:border-black/20 transition-all duration-200 md:text-sm">
                         
                         <span class="flex flex-row gap-2 items-center  ">
                             <WebsiteIcon class="size-4" />
@@ -69,25 +67,27 @@ const { Content } = await render(project)
                 </div>
                 
                 <div class="mt-6 flex gap-8 border-b border-white/10 pb-6">
+
                     <figure class="flex-1">
-                        <img 
+                        <Image 
                         src={`/src/assets/images/projects/${imgMobile}`} 
-                        alt={title} 
-                        loading="lazy" 
-                        decoding="async" 
-                        class="w-full h-[200px] object-contain" 
+                        alt={"Imagen de la pagina web en mobile de " + title} 
+                        class="w-full h-[200px] flex-1 object-contain" 
+                        priority
                         width={100}  
+                        height={200}
                         transition:name={`${slug}-image-mobile`}
                         />
                     </figure>
+                    
                     <figure class="flex-1">
-                        <img 
+                        <Image 
                         src={`/src/assets/images/projects/${imgDesktop}`} 
-                        alt={title} 
-                        loading="lazy" 
-                        decoding="async" 
-                        class="w-full h-[200px] object-contain" 
+                        alt={"Imagen de la pagina web en desktop de " + title}  
+                        class="w-full h-[200px] flex-1 object-contain"
+                        priority
                         width={100}  
+                        height={200}
                         transition:name={`${slug}-image-desktop`}
                         />
                     </figure>
