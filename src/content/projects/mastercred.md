@@ -1,5 +1,6 @@
 ---
 subtitle: "03 / Proyecto"
+isActive: true
 title: "MasterCred"
 description: "Pagina de prestamos para comercios adheridos de Junin"
 stack:

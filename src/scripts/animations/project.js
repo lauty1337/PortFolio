@@ -3,25 +3,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function initProjectAnimations() {
   const section = document.getElementById('projects');
-  if (!section) return;
+  const title = SplitText.create('[data-project-title]',{type: 'lines', mask: "lines"});
 
-  const title = document.querySelector('[data-project-title]');
-  if (title) {
-    gsap.from(title, {
+  
+    gsap.from(title.lines, {
       y: 36,
       opacity: 0,
-      duration: 0.8,
+      duration: 0.8,  
       ease: 'power3.out',
       scrollTrigger: {
         trigger: section,
         markers: true,
-        start: 'top 88%',
+        start: 'top 70%',
         toggleActions: 'play none none reverse',
       },
     });
-  }
 
   gsap.utils.toArray('[data-project-card]').forEach((card) => {
     gsap.from(card, {
@@ -36,6 +33,5 @@ function initProjectAnimations() {
       },
     });
   });
-}
 
 document.addEventListener('astro:page-load', initProjectAnimations);

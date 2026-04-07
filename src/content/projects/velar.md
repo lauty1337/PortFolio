@@ -1,5 +1,6 @@
 ---
 subtitle: "02 / Proyecto"
+isActive: true
 title: "Velar"
 description: "Agencia de desarrollo web Front-End"
 stack:

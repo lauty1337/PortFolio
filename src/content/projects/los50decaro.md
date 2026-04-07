@@ -1,5 +1,6 @@
 ---
 subtitle: "01 / Proyecto"
+isActive: false
 title: "Los 50 de Caro"
 description: "Invitacion a los 50 de caro"
 stack:

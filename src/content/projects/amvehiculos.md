@@ -1,5 +1,6 @@
 ---
 subtitle: "04 / Proyecto"
+isActive: true
 title: "AM Vehiculos"
 description: "Pagina de prestamos para comercios"
 stack:
