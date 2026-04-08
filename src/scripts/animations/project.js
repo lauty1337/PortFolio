@@ -1,37 +1,28 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from 'gsap/SplitText';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
   const section = document.getElementById('projects');
   const title = SplitText.create('[data-project-title]',{type: 'lines', mask: "lines"});
+  const cards = document.querySelectorAll('[data-project-card]');
 
-  
-    gsap.from(title.lines, {
-      y: 36,
-      opacity: 0,
-      duration: 0.8,  
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: section,
-        markers: true,
-        start: 'top 70%',
-        toggleActions: 'play none none reverse',
-      },
-    });
+  const tlProject = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: 'top 70%',
+      markers: true,
+      toggleActions: 'play none none reverse',
+      duration: 0.5,
+    }
+  })
 
-  gsap.utils.toArray('[data-project-card]').forEach((card) => {
-    gsap.from(card, {
-      y: 48,
-      opacity: 0,
-      duration: 0.75,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 92%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-  });
+  tlProject.
+  from(title.lines, {y: 100,  duration: 0.8, ease: 'power3.out'})
+  cards.forEach((card) => 
+    gsap.from(card, {y: 40, autoAlpha: 0, stagger: 0.3, ease: 'power3.out'}, '<+=0.4s')
+  )
 
-document.addEventListener('astro:page-load', initProjectAnimations);
+
+document.addEventListener('astro:page-load', tlProject.play);

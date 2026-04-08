@@ -22,7 +22,7 @@ const { Content } = await render(project)
 
 <Layout title={title + " | LSV Front-End Developer"} description={description}>
     <div class="min-h-dvh flex flex-col justify-center mt-15 md:mt-0 lg:mt-15">
-        <article class="max-w-90 md:max-w-xl relative mx-auto flex flex-col rounded-sm border  border-white/10 bg-[#111111]">
+        <article class="max-w-90 md:max-w-xl relative mx-auto flex flex-col border border-white/10 bg-[#111111]">
 
             <Image 
             src={`/src/assets/images/projects/${img}`} 
@@ -43,14 +43,14 @@ const { Content } = await render(project)
                 </p>
 
                 <div class="flex gap-4 mt-4 border-b border-white/10 pb-6">
-                    <a href={live} target="_blank" rel="noopener noreferrer" class="text-xs bg-white/80 text-black px-3 py-1 rounded-sm border-black/80 border font-secondary hover:bg-white hover:border-black/20 transition-all duration-200 md:text-sm">
+                    <a href={live} target="_blank" rel="noopener noreferrer" class="text-xs bg-white/80 text-black px-3 py-1 border border-black/80 font-secondary hover:bg-white hover:border-black/20 transition-all duration-200 md:text-sm">
                         
                         <span class="flex flex-row gap-2 items-center  ">
                             <WebsiteIcon class="size-4" />
                             Pagina web
                         </span>
                     </a>
-                    <a href={github} target="_blank" rel="noopener noreferrer" class=" gap-2 text-xs px-3 py-1 border border-white/10 bg-[#101010]font-secondary hover:border-white/20 hover:bg-black transition-all duration-200 rounded-sm md:text-sm">
+                    <a href={github} target="_blank" rel="noopener noreferrer" class="flex gap-2 text-xs px-3 py-1 border border-white/10 bg-[#101010] font-secondary hover:border-white/20 hover:bg-black transition-all duration-200 md:text-sm">
                         <span class="flex flex-row gap-2 items-center">
                             <GitHub class="size-4" />
                             Repositorio de GitHub  

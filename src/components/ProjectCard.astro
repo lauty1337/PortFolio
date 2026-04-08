@@ -18,7 +18,13 @@ const { data, slug } = project;
 
         <div class="flex justify-between items-center">
 
-        <div class="flex items-center gap-x-2 text-xs text-white/90 px-2 py-1 rounded-xs">
+        <div class:list={[
+            'flex items-center gap-x-2 text-xs text-white/90 px-2 py-1', 
+            {
+                "bg-emerald-500/10": data.isActive,
+                "bg-red-500/10 ": !data.isActive
+            }
+        ]}>
             <div class="relative flex size-2 ">
                 <span class:list={[
                     'absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75',
@@ -31,14 +37,14 @@ const { data, slug } = project;
                 <span class:list={[
                     "relative inline-flex size-2 rounded-full bg-emerald-500",
                     {
-                        "bg-emerald-500": data.isActive,
-                        "bg-red-500": !data.isActive
+                        "bg-emerald-500/60": data.isActive,
+                        "bg-red-500/60": !data.isActive
                     }
                 ]}></span>
             </div>
-            {data.isActive ? "Estado: Activo" : "Estado: Inactivo"}
+            {data.isActive ? "Activo" : "Inactivo"}
         </div>
-            <a href={`/projects/${slug}`} class="group flex text-xs items-center gap-x-2 py-1 px-3 border border-white/10 rounded-xs hover:border-white/20 transition-all duration-200">
+            <a href={`/projects/${slug}`} class="group flex text-xs items-center gap-x-2 py-1.5 px-3 border border-white/15  hover:border-white/30 hover:shadow-lg hover:shadow-white/5 transition-all duration-200">
                 Saber mas
                 <ArrowRight class="size-4 group-hover:translate-x-1 transition-all duration-200 group-[2]:group-hover:translate-x-1"/>
             </a>
@@ -67,7 +73,7 @@ const { data, slug } = project;
 
         <ul class="flex flex-wrap gap-2 mt-auto pt-4">
             {data.stack.map((stack) => (
-                <li class="text-xs px-2 py-1 bg-white/10 rounded-xs text-white/50 hover:text-white transition-colors duration-200">
+                <li class="text-xs px-2 py-1 bg-white/10 text-white/50 hover:text-white transition-colors duration-200">
                     {stack}
                 </li>
             ))}
